@@ -28,3 +28,29 @@ yarn-error.log*
 .env.development.local
 .env.test.local
 .env.production.local
+
+
+# Local gitignore rules for Terraform
+
+# 1. Ignore the massive provider binaries and plugins (This is what broke your push!)
+**/.terraform/
+
+# 2. Ignore local state files (They contain sensitive data and plain-text secrets!)
+*.tfstate
+*.tfstate.*
+
+# 3. Ignore crash logs
+crash.log
+crash.*.log
+
+# 4. Ignore local override files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# 5. Ignore CLI configuration credentials or local variables
+.terraformrc
+terraform.rc
+*.tfvars
+*.tfvars.json
